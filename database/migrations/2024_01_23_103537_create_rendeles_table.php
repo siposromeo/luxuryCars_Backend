@@ -10,11 +10,8 @@ return new class extends Migration
     {
         Schema::create('rendeles', function (Blueprint $table) {
             $table->id();
-            $table->integer('felhasznalo_id');
-            $table->integer('auto_id');
-            $table->integer('naptar_id');
-            $table->decimal('ar');
-            $table->timestamps('megrendeles_datum');
+            $table->integer('ar');
+            $table->date('megrendeles_datum');
             $table->foreignId('felhasznalo_id')->references('id')->on('users');
             $table->foreignId('auto_id')->references('id')->on('autos');
             $table->foreignId('naptar_id')->references('id')->on('naptars')->onDelete('cascade');
