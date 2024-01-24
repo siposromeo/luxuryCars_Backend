@@ -13,7 +13,6 @@ return new class extends Migration
             $table->date('berles_Kezdete');
             $table->date('berles_Vege');
             $table->date('berles_Idotartama');
-            $table->timestamps();
         });
     }
 

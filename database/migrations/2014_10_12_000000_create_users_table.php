@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('jogositvany_szam');
+            $table->string('jogositvany_szam');
             $table->string('telefonszam');
             $table->string('szamlazasi_cim');
             $table->rememberToken();
