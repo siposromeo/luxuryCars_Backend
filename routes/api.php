@@ -22,3 +22,7 @@ Route::put('/user/{id}', [UserController::class, 'update']);
 
 // Felhasználó törlése
 Route::delete('/user/{id}', [UserController::class, 'destroy']);
+
+
+// ----- CARS ----- //
+

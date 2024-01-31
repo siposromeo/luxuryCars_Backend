@@ -1,5 +1,7 @@
 - BACKEND -
 
+LAPOZÁS?!??!?
+
 táblák létrehozása, és feltöltése.
 
 CREATE TABLE Felhasznalo (
@@ -38,4 +40,3 @@ CREATE TABLE Rendeles (
     FOREIGN KEY (auto_id) REFERENCES Auto(_id),
     FOREIGN KEY (naptar_id) REFERENCES Naptar(_id)
 );
- 

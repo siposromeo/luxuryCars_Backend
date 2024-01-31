@@ -10,9 +10,10 @@ return new class extends Migration
     {
         Schema::create('naptars', function (Blueprint $table) {
             $table->id();
-            $table->date('berles_Kezdete');
-            $table->date('berles_Vege');
+            $table->dateTime('berles_Kezdete');
+            $table->dateTime('berles_Vege');
             $table->date('berles_Idotartama');
+            $table->foreignId('auto_id')->references('id')->on('autos');
         });
     }
 
