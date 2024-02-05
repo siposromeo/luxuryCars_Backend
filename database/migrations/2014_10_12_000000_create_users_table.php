@@ -20,9 +20,4 @@ return new class extends Migration
             $table->rememberToken();
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('users');
-    }
 };

@@ -13,6 +13,6 @@ class Rendeles extends Model
     public $timestamps = false;
 
     public function auto(): BelongsToMany{
-        return $this->belongsToMany(Auto::class, 'auto_id', 'felhasznalo_id');
+        return $this->belongsToMany(Auto::class, 'auto_id', 'felhasznalo_id', 'naptar_id');
     }
 }

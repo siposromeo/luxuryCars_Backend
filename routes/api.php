@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AutoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NaptarController;
+use App\Http\Controllers\RendelesController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +28,27 @@ Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
 
 // ----- CARS ----- //
+Route::get('/cars', [AutoController::class, 'index']);
+Route::get('/cars/{id}', [AutoController::class, 'show']);
 
+
+// ----- NAPTÁRAK ----- //
+Route::get('/naptar', [NaptarController::class, 'index']);
+Route::get('/naptar/{id}', [NaptarController::class,'show']);
+
+// Bérlés kezdetének létrehozása
+Route::post('/naptar', [NaptarController::class, 'store']);
+
+// Bérlés lejárta
+Route::delete('/naptar/{id}', [NaptarController::class, 'destroy']);
+
+
+// ----- RENDELÉSEK ----- //
+Route::get('/rendeles', [RendelesController::class, 'index']);
+Route::get('/rendeles/{id}', [RendelesController::class,'show']);
+
+Route::post('/rendeles', [RendelesController::class,'store']);
+
+Route::put('/rendeles/{id}', [RendelesController::class, 'update']);
+
+Route::delete('/rendeles/{id}', [RendelesController::class, 'destroy']);

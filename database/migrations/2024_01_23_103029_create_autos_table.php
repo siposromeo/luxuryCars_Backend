@@ -17,9 +17,4 @@ return new class extends Migration
             $table->string('kep_Url');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('autos');
-    }
 };

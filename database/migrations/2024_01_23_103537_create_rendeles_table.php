@@ -17,9 +17,4 @@ return new class extends Migration
             $table->foreignId('naptar_id')->references('id')->on('naptars')->onDelete('cascade');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('rendeles');
-    }
 };

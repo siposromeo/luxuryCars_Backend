@@ -16,9 +16,4 @@ return new class extends Migration
             $table->foreignId('auto_id')->references('id')->on('autos');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('naptars');
-    }
 };
