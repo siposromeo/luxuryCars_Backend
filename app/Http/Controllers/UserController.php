@@ -10,15 +10,15 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:255',
-            'jogositvany_szam' => 'nullable',
-            'telefonszam' => 'nullable',
-            'szamlazasi_cim' => 'nullable'
+            'jogositvany_szam' => 'required|nullable',
+            'telefonszam' => 'required|nullable',
+            'szamlazasi_cim' => 'required|nullable'
         ]);
 
         $user = User::create([
@@ -31,6 +31,19 @@ class UserController extends Controller
         ]);
 
         return response()->json($user, 201);
+    }
+    public function login(Request $request)
+    {
+        if (!Auth()->attempt($request->only('email', 'password'))) {
+            return response(['message' => 'Helytelen adatok!'], 401);
+        }
+        $user = User::where('email', $request->email)->first();
+        $data = ["user" => $user, "token" => $user->createToken('Personal Access Token')->plainTextToken];
+        return response()->json($data, 201);
+    }
+    public function logout(Request $request){
+        $request->user()->currentAccessToken()->delete();
+        return response(['message' => 'Sikeres kijelentkezés!'], 200);
     }
 
     public function index()
@@ -74,6 +87,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return response()->json(null, 204);
+        return response()->json("Törölve", 204);
     }
 }

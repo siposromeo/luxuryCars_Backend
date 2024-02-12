@@ -4,7 +4,6 @@ use App\Http\Controllers\AutoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NaptarController;
 use App\Http\Controllers\RendelesController;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +13,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Új felhasználó létrehozása
-Route::post('/user', [UserController::class, 'store']);
+Route::post('/register', [UserController::class,'register']);
+
+Route::post('/login', [UserController::class, 'login']);
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::post('/logout', [UserController::class, 'logout']);
+});
 
 // Felhasználók listázása
 Route::get('/user', [UserController::class, 'index']);
