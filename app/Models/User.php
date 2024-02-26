@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -45,7 +47,13 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
-    public function rendeles(): BelongsToMany{
-        return $this->belongsToMany(User::class, 'auto_id', 'naptar_id','rendeles_id');
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rendelesek(): HasMany
+    {
+        return $this->hasMany(Rendeles::class, 'felhasznalo_id');
     }
 }

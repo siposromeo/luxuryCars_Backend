@@ -16,7 +16,7 @@ class Naptar extends Model
         'berles_Vege',
         'berles_Idotartama'
     ];
-    public function rendeles(): BelongsToMany{
-        return $this->belongsToMany(Rendeles::class, 'auto_id', 'felhasznalo_id', 'rendeles_id');
-    }
+    // public function rendeles(): BelongsToMany{
+    //     return $this->belongsToMany(Rendeles::class, 'auto_id', 'felhasznalo_id', 'rendeles_id');
+    // }
 }

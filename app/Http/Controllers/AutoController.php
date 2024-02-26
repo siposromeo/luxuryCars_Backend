@@ -19,8 +19,7 @@ class AutoController extends Controller
     }
     public function pagination()
     {
-        return view('cars.pagination', [
-            'cars' => Auto::all()->paginate(10)
-        ]);
+        $cars = Auto::where('id',">",0)->paginate(10);
+        return response()->json($cars);
     }
 }

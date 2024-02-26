@@ -24,13 +24,16 @@ class RendelesController extends Controller
         ]);
         return response()->json($rendeles, 201);
     }
+
+
     public function index(){
-        $rendeles = Rendeles::all();
+        $rendeles = Rendeles::with('auto', 'user', 'naptar')->get();
+        // $rendeles = Rendeles::all();
         return response()->json($rendeles);
     }
     public function show($id)
     {
-        $rendeles = Rendeles::find($id);
+        $rendeles = Rendeles::where('id', $id)->with('auto', 'user', 'naptar')->get();;
         return response()->json($rendeles);
     }
     public function update(Request $request, $id)

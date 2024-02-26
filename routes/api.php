@@ -33,7 +33,7 @@ Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
 
 // ----- CARS ----- //
-Route::get('/cars', [AutoController::class, 'index']);
+Route::get('/cars', [AutoController::class, 'pagination']);
 Route::get('/cars/{id}', [AutoController::class, 'show']);
 
 

@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->dateTime('berles_Kezdete');
             $table->dateTime('berles_Vege');
-            $table->date('berles_Idotartama');
             $table->foreignId('auto_id')->references('id')->on('autos');
         });
     }

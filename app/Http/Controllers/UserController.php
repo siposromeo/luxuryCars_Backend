@@ -48,7 +48,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::with('rendelesek')->get();
         return response()->json($users);
     }
 
