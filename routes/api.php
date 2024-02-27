@@ -36,6 +36,9 @@ Route::delete('/user/{id}', [UserController::class, 'destroy']);
 Route::get('/cars', [AutoController::class, 'pagination']);
 Route::get('/cars/{id}', [AutoController::class, 'show']);
 
+// Autó létrehozása
+Route::post('/cars', [AutoController::class, 'store']);
+
 
 // ----- NAPTÁRAK ----- //
 Route::get('/naptar', [NaptarController::class, 'index']);
