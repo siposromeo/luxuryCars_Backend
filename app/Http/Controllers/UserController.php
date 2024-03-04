@@ -19,6 +19,7 @@ class UserController extends Controller
             'jogositvany_szam' => 'required|nullable',
             'telefonszam' => 'required|nullable',
             'szamlazasi_cim' => 'required|nullable'
+
         ]);
 
         $user = User::create([
@@ -27,7 +28,8 @@ class UserController extends Controller
             'password' => Hash::make($validatedData['password']),
             'jogositvany_szam' => $validatedData['jogositvany_szam'],
             'telefonszam' => $validatedData['telefonszam'],
-            'szamlazasi_cim' => $validatedData['szamlazasi_cim']
+            'szamlazasi_cim' => $validatedData['szamlazasi_cim'],
+            'role'=>0
         ]);
 
         return response()->json($user, 201);
