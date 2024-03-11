@@ -26,7 +26,8 @@ class User extends Authenticatable
         'password',
         'jogositvany_szam',
         'telefonszam',
-        'szamlazasi_cim'
+        'szamlazasi_cim',
+        'role'
     ];
 
     /**
