@@ -29,7 +29,7 @@ class UserController extends Controller
             'jogositvany_szam' => $validatedData['jogositvany_szam'],
             'telefonszam' => $validatedData['telefonszam'],
             'szamlazasi_cim' => $validatedData['szamlazasi_cim'],
-            'role'=>0
+            'role' => 0
         ]);
 
         return response()->json($user, 201);

@@ -35,6 +35,7 @@ Route::delete('/user/{id}', [UserController::class, 'destroy']);
 // ----- CARS ----- //
 Route::get('/cars', [AutoController::class, 'pagination']);
 Route::get('/cars/{id}', [AutoController::class, 'show']);
+Route::get('/carsAll', [AutoController::class, 'index']);
 
 // Autó létrehozása
 Route::post('/cars', [AutoController::class, 'store']);
@@ -60,3 +61,4 @@ Route::post('/rendeles', [RendelesController::class,'store']);
 Route::put('/rendeles/{id}', [RendelesController::class, 'update']);
 
 Route::delete('/rendeles/{id}', [RendelesController::class, 'destroy']);
+
