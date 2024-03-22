@@ -13,13 +13,11 @@ class NaptarController extends Controller
         $validatedData = $request->validate([
             'berles_Kezdete' =>'required|date',
             'berles_Vege' =>'required|date',
-            'berles_Idotartama' =>'required|date',
             'auto_id' =>'required|integer',
         ]);
         $naptar = Naptar::create([
             'berles_Kezdete' => $validatedData['berles_Kezdete'],
             'berles_Vege' => $validatedData['berles_Vege'],
-            'berles_Idotartama' => $validatedData['berles_Idotartama'],
             'auto_id' => $validatedData['auto_id'],
         ]);
         return response()->json($naptar, 201);

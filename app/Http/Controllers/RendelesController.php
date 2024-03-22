@@ -33,7 +33,7 @@ class RendelesController extends Controller
     }
     public function show($id)
     {
-        $rendeles = Rendeles::where('id', $id)->with('auto', 'user', 'naptar')->get();;
+        $rendeles = Rendeles::where('id', $id)->with('auto', 'user', 'naptar')->get();
         return response()->json($rendeles);
     }
     public function update(Request $request, $id)
