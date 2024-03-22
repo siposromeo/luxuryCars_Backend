@@ -16,8 +16,8 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:255',
-            'jogositvany_szam' => 'required|nullable',
-            'telefonszam' => 'required|nullable',
+            'jogositvany_szam' => 'required|nullable|min:10|max:16',
+            'telefonszam' => 'required|nullable|min:10|max:14',
             'szamlazasi_cim' => 'required|nullable'
 
         ]);
