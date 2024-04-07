@@ -56,7 +56,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('rendelesek') -> where('id', $id) -> get();
         return response()->json($user);
     }
 
