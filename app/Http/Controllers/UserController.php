@@ -39,7 +39,7 @@ class UserController extends Controller
         if (!Auth()->attempt($request->only('email', 'password'))) {
             return response(['message' => 'Helytelen adatok!'], 401);
         }
-        $user = User::where('email', $request->email)->first();
+        $user = User::with('rendelesek') -> where('email', $request->email)->first();
         $data = ["user" => $user, "token" => $user->createToken('Personal Access Token')->plainTextToken];
         return response()->json($data, 201);
     }

@@ -8,10 +8,6 @@ use Illuminate\Routing\Controller;
 
 class NaptarController extends Controller
 {
-    public function store(Request $request)
-    {
-        
-    }
     public function index(){
         $naptars = Naptar::all();
         return response()->json($naptars);
