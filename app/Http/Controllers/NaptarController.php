@@ -10,17 +10,7 @@ class NaptarController extends Controller
 {
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'berles_Kezdete' =>'required|date',
-            'berles_Vege' =>'required|date',
-            'auto_id' =>'required|integer',
-        ]);
-        $naptar = Naptar::create([
-            'berles_Kezdete' => $validatedData['berles_Kezdete'],
-            'berles_Vege' => $validatedData['berles_Vege'],
-            'auto_id' => $validatedData['auto_id'],
-        ]);
-        return response()->json($naptar, 201);
+        
     }
     public function index(){
         $naptars = Naptar::all();

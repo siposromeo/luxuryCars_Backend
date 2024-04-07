@@ -12,6 +12,7 @@ class Rendeles extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $fillable = ["id", "ar" ,"megrendeles_datum" ,"felhasznalo_id","auto_id" ,"naptar_id"];
 
     /**
      * Get the user that owns the Rendeles

@@ -18,6 +18,7 @@ Route::post('/register', [UserController::class,'register']);
 Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::post('/rendeles', [RendelesController::class,'store']);
     Route::post('/logout', [UserController::class, 'logout']);
 });
 
@@ -55,8 +56,6 @@ Route::delete('/naptar/{id}', [NaptarController::class, 'destroy']);
 // ----- RENDELÉSEK ----- //
 Route::get('/rendeles', [RendelesController::class, 'index']);
 Route::get('/rendeles/{id}', [RendelesController::class,'show']);
-
-Route::post('/rendeles', [RendelesController::class,'store']);
 
 Route::put('/rendeles/{id}', [RendelesController::class, 'update']);
 
