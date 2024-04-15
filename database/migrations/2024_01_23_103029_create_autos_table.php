@@ -14,7 +14,7 @@ return new class extends Migration
             $table->integer('ferohely');
             $table->integer('loero');
             $table->string('kep_Url');
-            $table->string('video_Url');
+            $table->string('leiras');
         });
     }
 };
