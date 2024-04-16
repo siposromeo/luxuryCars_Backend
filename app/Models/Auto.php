@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Auto extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * Get all of the comments for the Auto
